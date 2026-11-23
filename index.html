@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dagaare Translate</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-swap" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></symbol>
+<symbol id="i-vol" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+<symbol id="i-max" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 12h.01M8 12h.01M16 12h.01"/></symbol>
+</svg>
+<main>
+<div class="title">Dagaare Translate</div>
+
+<section id="v-text">
+<div class="langs">
+<div class="lang" id="ls">English<small></small></div>
+<button class="swap" id="swap" aria-label="Swap languages"><svg><use href="#i-swap"/></svg></button>
+<div class="lang" id="lt">Dagaare<small>Central</small></div>
+</div>
+<div class="panel">
+<div class="head"><span id="lab-in">English</span><button id="sp-in" aria-label="Listen"><svg><use href="#i-vol"/></svg></button></div>
+<textarea id="q" rows="3" placeholder="Type an English word" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+<div class="chars hide" id="chars"><button>ɛ</button><button>ɔ</button></div>
+</div>
+<div class="panel">
+<div class="head"><span id="lab-out">Dagaare</span><button id="sp-out" aria-label="Listen"><svg><use href="#i-vol"/></svg></button></div>
+<div class="big" id="big"></div>
+<div class="note" id="note"></div>
+<div class="alts" id="alts"></div>
+<div class="exlab hide" id="exlab">Example sentences</div>
+<div id="exs"></div>
+<div class="actions">
+<button class="clear" id="clear">Clear</button>
+<button class="fav" id="fav" aria-label="Save"><svg><use href="#i-heart"/></svg></button>
+<button id="copy" aria-label="Copy"><svg><use href="#i-copy"/></svg></button>
+<button id="max" aria-label="Full screen"><svg><use href="#i-max"/></svg></button>
+<button id="share" aria-label="Share"><svg><use href="#i-share"/></svg></button>
+</div>
+</div>
+<div class="small">Not checked by a native speaker yet. Sources and credits are in the More tab.</div>
+</section>
+
+<section id="v-phrases" class="hide">
+<div class="note">Saved translations</div>
+<div id="favlist"></div>
+</section>
+
+<section id="v-more" class="hide">
+<div class="panel">
+<b>About</b>
+<p class="note">An experiment: an English and Dagaare lookup for words and example sentences. Central Dagaare only, <span id="count"></span> The words and sentences come from A Dictionary and Grammatical Sketch of Dagaare (2021) by Mark Ali, Scott Grimm and Adams Bodomo, published by Language Science Press under a CC BY 4.0 license. They were cleaned and reformatted for this app. Entries are unverified. English audio uses your device’s voice. Dagaare audio plays only when audio files are placed next to this page, otherwise it says there is none yet. Camera and voice input are not built yet.</p>
+</div>
+</section>
+</main>
+
+<div class="tabs"><div>
+<button class="tab on" data-tab="text"><svg><use href="#i-text"/></svg>Text</button>
+<button class="tab" data-tab="camera"><svg><use href="#i-cam"/></svg>Camera</button>
+<button class="tab" data-tab="voice"><svg><use href="#i-mic"/></svg>Voice</button>
+<button class="tab" data-tab="phrases"><svg><use href="#i-book"/></svg>Phrases</button>
+<button class="tab" data-tab="more"><svg><use href="#i-more"/></svg>More</button>
+</div></div>
+<div class="full hide" id="full"></div>
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
